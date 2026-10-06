@@ -71,6 +71,8 @@ archy-gui/
 │   ├── styles.css         # Martian Empire theme (deep-navy / cyan / orange)
 │   ├── app.js             # Status polling, console, memory + triggers rendering
 │   └── favicon.svg
+├── vendor/openmontage/    # Vendored OpenMontage (AGPL-3.0) — see below
+├── NOTICE.md              # Licensing of bundled components
 ├── .env.example
 └── package.json
 ```
@@ -93,6 +95,25 @@ Following the Archy architecture, natural next steps for this dashboard:
 - Trigger editor (create/edit/disable triggers from the UI).
 - Agentic run viewer (step-by-step workflow execution from the Agentic Engine).
 
+## Bundled: OpenMontage
+
+`vendor/openmontage/` is a vendored copy of
+[OpenMontage](https://github.com/calesthio/OpenMontage) — an open-source,
+agentic **video-production** system (Python). It's bundled here as a related
+tool in the Archy ecosystem; a natural follow-on is wiring its pipelines into
+the dashboard as a video/connector panel.
+
+It's a **source-complete, trimmed** copy (heavy demo media and the host-agent
+integration files removed) pinned to a specific upstream commit — see
+[`vendor/openmontage/VENDORED.md`](vendor/openmontage/VENDORED.md) for exactly
+what's included and how to restore the full upstream.
+
+> ⚠️ **License:** OpenMontage is **AGPL-3.0**, not MIT. See
+> [`NOTICE.md`](NOTICE.md) for what that means for this repo. Short version:
+> archy-gui's own code stays MIT; `vendor/openmontage/` stays AGPL-3.0; keep the
+> two as separate processes to avoid AGPL copyleft reaching archy-gui's code.
+
 ## License
 
-MIT
+archy-gui's own code is **MIT**. Bundled third-party code carries its own
+license — see [`NOTICE.md`](NOTICE.md).

@@ -5,3 +5,10 @@ npm-debug.log*
 .DS_Store
 *.log
 dist/
+
+# OpenMontage (vendored, Python) runtime artifacts
+vendor/openmontage/**/__pycache__/
+vendor/openmontage/**/*.pyc
+vendor/openmontage/.venv/
+vendor/openmontage/**/output/
+vendor/openmontage/**/.cache/
