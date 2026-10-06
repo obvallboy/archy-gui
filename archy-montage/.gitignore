@@ -1,0 +1,7 @@
+node_modules/
+*.mp4
+!examples/*.mp4
+*.montage.yaml
+!examples/*.montage.yaml
+.DS_Store
+*.log

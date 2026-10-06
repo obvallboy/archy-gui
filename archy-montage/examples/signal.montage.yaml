@@ -1,0 +1,41 @@
+# Demo montage — renders fully offline (gradients + text + tone, no external assets).
+#   cd archy-montage && npm install && node cli.js render examples/signal.montage.yaml -o signal.mp4
+title: Signal From Tomorrow
+width: 1920
+height: 1080
+fps: 30
+
+audio:
+  tone: 174        # low hum under the whole piece
+  volume: 0.14
+
+scenes:
+  - duration: 3.0
+    background: { gradient: deepspace }
+    texts:
+      - { content: "ARCHY", pos: center, size: 160 }
+      - { content: "montage engine", pos: lower-third, size: 44, color: "#00d4ff" }
+    fade: { in: 0.6 }
+    transition: { type: fade, duration: 0.6 }
+
+  - duration: 2.6
+    background: { gradient: nebula }
+    text: { content: "Declarative.", size: 110 }
+    transition: { type: slideleft, duration: 0.5 }
+
+  - duration: 2.6
+    background: { gradient: signal }
+    text: { content: "Local-first.", size: 110 }
+    transition: { type: slideright, duration: 0.5 }
+
+  - duration: 2.6
+    background: { gradient: ember }
+    text: { content: "No API keys.", size: 110, color: "#0f0f23" }
+    transition: { type: circleopen, duration: 0.6 }
+
+  - duration: 3.4
+    background: { color: "#0f0f23" }
+    texts:
+      - { content: "Built to learn, expand, and build.", pos: center, size: 64 }
+      - { content: "archy-montage", pos: lower-third, size: 40, color: "#ff6b35" }
+    fade: { out: 0.8 }

@@ -1,0 +1,28 @@
+{
+  "name": "archy-montage",
+  "version": "1.0.0",
+  "description": "A lean, local-first montage engine: declarative YAML -> MP4 via ffmpeg. No API keys, no cloud, fully offline and deterministic. A lightweight counterpart to OpenMontage's agentic pipelines.",
+  "type": "module",
+  "bin": {
+    "montage": "cli.js"
+  },
+  "main": "src/render.js",
+  "scripts": {
+    "demo": "node cli.js render examples/signal.montage.yaml -o signal.mp4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "yaml": "^2.5.0"
+  },
+  "keywords": [
+    "montage",
+    "video",
+    "ffmpeg",
+    "archy",
+    "offline",
+    "cli"
+  ],
+  "license": "MIT"
+}

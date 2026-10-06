@@ -72,10 +72,16 @@ archy-gui/
 │   ├── app.js             # Status polling, console, memory + triggers rendering
 │   └── favicon.svg
 ├── vendor/openmontage/    # Vendored OpenMontage (AGPL-3.0) — see below
+├── archy-montage/         # Standalone montage engine (separate CLI, not the UI)
 ├── NOTICE.md              # Licensing of bundled components
 ├── .env.example
 └── package.json
 ```
+
+> **`archy-montage/`** is a separate, self-contained tool in this repo — a
+> local-first montage engine (declarative YAML → MP4 via ffmpeg, no API keys).
+> It's intentionally **not** wired into this dashboard; it runs as its own CLI.
+> See [`archy-montage/README.md`](archy-montage/README.md).
 
 ## Features in the UI
 
