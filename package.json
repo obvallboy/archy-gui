@@ -1,0 +1,27 @@
+{
+  "name": "archy-gui",
+  "version": "1.0.0",
+  "description": "Archy Web Dashboard — live status monitoring, memory visualization, and a command/chat console for the Archy AI (Architect-1 core, Martian Empire).",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  },
+  "keywords": [
+    "archy",
+    "architect-1",
+    "ai",
+    "dashboard",
+    "assistant"
+  ],
+  "license": "MIT"
+}

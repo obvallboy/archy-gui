@@ -1,0 +1,17 @@
+[
+  {
+    "type": "on_memory",
+    "match": { "type": "error", "contains": "upgrade" },
+    "action": "speak 'Last upgrade failed. Should I try again?'"
+  },
+  {
+    "type": "on_input",
+    "match": { "inputContains": "form" },
+    "action": "speak 'You recently worked with a form UI.'"
+  },
+  {
+    "type": "on_input",
+    "match": { "inputContains": "status" },
+    "action": "report system health and Brain connection"
+  }
+]

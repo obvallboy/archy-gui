@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archy — Command Dashboard</title>
+  <meta name="description" content="Archy Web Dashboard: live status monitoring, memory visualization, and command console for the Architect-1 AI core." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">🪐</span>
+        <div class="brand-text">
+          <h1>Archy</h1>
+          <p>Architect-1 Core · Command Dashboard</p>
+        </div>
+      </div>
+      <div class="topbar-status">
+        <div id="brainPill" class="pill pill--unknown" title="Archy Brain connection">
+          <span class="dot"></span>
+          <span id="brainPillText">Connecting…</span>
+        </div>
+        <button id="settingsBtn" class="icon-btn" title="Settings" aria-label="Settings">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Status monitoring strip -->
+    <section class="statusbar" aria-label="Live status">
+      <div class="stat">
+        <div class="stat-label">Brain</div>
+        <div class="stat-value" id="statBrain">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Latency</div>
+        <div class="stat-value" id="statLatency">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Messages</div>
+        <div class="stat-value" id="statMessages">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Session</div>
+        <div class="stat-value" id="statUptime">0s</div>
+      </div>
+      <div class="stat stat--wide">
+        <div class="stat-label">Endpoint</div>
+        <div class="stat-value stat-value--mono" id="statEndpoint">—</div>
+      </div>
+    </section>
+
+    <!-- Main grid: command console + memory/triggers -->
+    <main class="grid">
+      <!-- Command console -->
+      <section class="panel panel--console">
+        <div class="panel-head">
+          <h2>🧠 Command Console</h2>
+          <div class="panel-actions">
+            <button id="clearBtn" class="ghost-btn" title="Clear this conversation">Clear</button>
+          </div>
+        </div>
+        <div id="log" class="log" aria-live="polite"></div>
+        <form id="composer" class="composer" autocomplete="off">
+          <textarea id="input" rows="1" placeholder="Send a command to Archy…  (Enter to send · Shift+Enter for newline)"></textarea>
+          <button id="sendBtn" type="submit" class="send-btn" aria-label="Send">
+            <span class="send-icon">➤</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Memory + triggers -->
+      <aside class="panel panel--memory">
+        <div class="panel-head">
+          <h2>💾 Memory</h2>
+          <div class="panel-actions">
+            <span class="tabs">
+              <button class="tab is-active" data-tab="session">Session</button>
+              <button class="tab" data-tab="triggers">Triggers</button>
+            </span>
+          </div>
+        </div>
+
+        <div id="tab-session" class="tabpane is-active">
+          <p class="muted" id="memoryHint">Everything you and Archy exchange this session is kept here.</p>
+          <ul id="memoryList" class="memory-list"></ul>
+        </div>
+
+        <div id="tab-triggers" class="tabpane">
+          <p class="muted">Reactive-memory rules loaded by the Architect-1 core.</p>
+          <ul id="triggerList" class="trigger-list"></ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span>Base AI assistant of the Martian Empire · Built to learn, expand, and build.</span>
+    </footer>
+  </div>
+
+  <!-- Settings dialog -->
+  <div id="settingsOverlay" class="overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-head">
+        <h3 id="settingsTitle">Settings</h3>
+        <button id="settingsClose" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="field">
+          <span>Archy name</span>
+          <input id="setName" type="text" placeholder="Archy" />
+        </label>
+        <label class="field field--row">
+          <span>Read replies aloud</span>
+          <input id="setSpeak" type="checkbox" />
+        </label>
+        <div class="field">
+          <span>Brain endpoint</span>
+          <code id="setEndpoint" class="endpoint-readout">—</code>
+          <small class="muted">Configured server-side via the <code>BRAIN_URL</code> environment variable.</small>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button id="settingsSave" class="primary-btn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
